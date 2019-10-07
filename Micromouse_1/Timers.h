@@ -41,11 +41,15 @@ class Timer
 public:
 	Timer();
 	~Timer();
-	volatile int counter;
 	volatile int serial;
 	volatile int change;
 	volatile int motor_control;
-	volatile bool flag;
+
+	typedef struct flags {
+		volatile unsigned int counter;
+		volatile bool check_timer;
+	}flags_S;
+	flags_S flag;
 
 	void pwmTimerConfig(ledc_mode_t speed_mode, ledc_timer_t timer_num, ledc_timer_bit_t bit_resolution, uint32_t freq_hz);
 	void interruptInit(uint8_t timer_num, uint32_t sampling_time, void(*onTimer)(void));

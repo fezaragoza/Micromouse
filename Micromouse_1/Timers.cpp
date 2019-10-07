@@ -7,6 +7,7 @@ Timer::Timer()
 	_ledc_timer;
 	_timer = NULL;
 	timerMux = portMUX_INITIALIZER_UNLOCKED;
+	//flags_S flag;			// Not necessary
 }
 
 Timer::~Timer()
@@ -31,7 +32,7 @@ void Timer::interruptInit(uint8_t timer_num, uint32_t sampling_time, void(*onTim
 }
 
 void Timer::enable() {
-	counter = 0;
+	flag.counter = 0;
 	timerAlarmEnable(_timer);
 }
 
@@ -41,12 +42,12 @@ void Timer::disable() {
 
 bool Timer::checkTimer()
 {
-	if (flag == 1)
+	if (flag.check_timer == 1)
 	{
 		portENTER_CRITICAL(&timerMux);
-		flag = false;
+		flag.check_timer = false;
 		portEXIT_CRITICAL(&timerMux);
-		counter++;
+		flag.counter++;
 		return 1;
 	}
 	else

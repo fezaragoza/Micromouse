@@ -18,7 +18,7 @@ void setup() {
 // the loop function runs over and over again until power down or reset
 void loop() {
 	if (timer0.checkTimer()) {
-		Serial.println(timer0.counter);
+		Serial.println(timer0.flag.counter);
 
 	}
 }
@@ -28,7 +28,7 @@ void loop() {
 void IRAM_ATTR onTimer0_ISR()
 {
 	portENTER_CRITICAL_ISR(&timer0.timerMux);
-	timer0.flag = true;
+	timer0.flag.check_timer = true;
 	portEXIT_CRITICAL_ISR(&timer0.timerMux);
 }
 
