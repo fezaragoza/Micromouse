@@ -10,9 +10,9 @@
 
 #include <driver/ledc.h>
 
-#define MS2MIN 0.00001666
+#define MS2MIN 0.00001666F
 #define SAMPLINGTIME 1000000 // 100ms, value in us.
-#define MSTIMESAMPLING (SAMPLINGTIME * 0.001)
+#define MSTIMESAMPLING (SAMPLINGTIME * 0.001F)
 #define TIMECONVERSION (MSTIMESAMPLING * MS2MIN)
 
 #define ledPin 16 // 16 corresponds to GPIO16

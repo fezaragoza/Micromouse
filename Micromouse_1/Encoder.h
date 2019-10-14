@@ -8,7 +8,7 @@
 #include "WProgram.h"
 #endif
 
-#define FULLREVOLUTIONPULSES 900
+#define FULLREVOLUTIONPULSES 12*75
 
 class Encoder
 {
@@ -18,7 +18,7 @@ public:
 
 	volatile bool flag_encoder_a, flag_encoder_b;
 	volatile bool _count_s;
-	volatile int count_s;
+	volatile int count_s, count_p;
 	unsigned int _protected_count;
 	double _pulse_time, _time_conv;
 	uint16_t instant_speed;
