@@ -3,11 +3,12 @@
 
 Encoder::Encoder(uint8_t signal_a, uint8_t signal_b)
 {
-	_signal_encoder_a = signal_a;
-	_signal_encoder_b = signal_b;
-	flag_encoder_a = 0;
-	flag_encoder_b = false;
-
+	_signal_encoder_a	= signal_a;
+	_signal_encoder_b	= signal_b;
+	flag_encoder_a		= 0;
+	flag_encoder_b		= false;
+	count_p				= 0;
+	count_s				= 0;
 }
 
 Encoder::~Encoder()
@@ -22,11 +23,11 @@ void Encoder::begin(void(*encoderA)(void), void(*encoderB)(void)) {
 }
 
 bool Encoder::readEncoderA() {
-
+	return digitalRead(_signal_encoder_a);
 }
 
 bool Encoder::readEncoderB() {
-
+	return digitalRead(_signal_encoder_b);
 }
 
 uint16_t Encoder::getSpeed(){
