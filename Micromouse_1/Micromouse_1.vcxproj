@@ -115,12 +115,17 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="DCMotor.h" />
     <ClInclude Include="Encoder.h" />
+    <ClInclude Include="Micromouse.h" />
+    <ClInclude Include="Flags.h" />
     <ClInclude Include="Timers.h" />
     <ClInclude Include="__vm\.Micromouse_1.vsarduino.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="DCMotor.cpp" />
     <ClCompile Include="Encoder.cpp" />
+    <ClCompile Include="Micromouse.cpp" />
     <ClCompile Include="Timers.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

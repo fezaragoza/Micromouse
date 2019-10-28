@@ -1,5 +1,5 @@
+/* Owned by Fernando Zaragoza - October 2019 */
 #include "Encoder.h"
-#include "Timers.h"
 
 Encoder::Encoder(uint8_t signal_a, uint8_t signal_b)
 {
@@ -32,11 +32,18 @@ bool Encoder::readEncoderB() {
 
 uint16_t Encoder::getSpeed(){
 	noInterrupts();
-	_protected_count_s = count_s;
-	count_s = 0;
+	protected_count_s = count_s;
+	count_s				= 0;
 	interrupts();
-	_pulse_time = (_protected_count_s / TIMECONVERSION);
+	_pulse_time = (protected_count_s / TIMECONVERSION);
 	instant_speed = round(_pulse_time / FULLREVOLUTIONPULSES);
 	//Serial.print(instant_speed);
 	return instant_speed;
+}
+
+void Encoder::resetCounters()
+{
+	count_s = 0;
+	protected_count_s = 0;
+	instant_speed = 0;
 }

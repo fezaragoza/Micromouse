@@ -27,12 +27,27 @@
     <ClInclude Include="Timers.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Micromouse.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="DCMotor.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Flags.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Encoder.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Timers.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Micromouse.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="DCMotor.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
